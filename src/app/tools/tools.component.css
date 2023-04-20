@@ -1,0 +1,29 @@
+.row{
+    margin-left: auto;
+}
+
+.form-group{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    float: right;
+    width: 30%;
+}
+
+.form-control{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.container{
+    margin-top: 20px;
+}
+
+.logo-footer{
+    margin-bottom: 20px;
+}
+
+.card{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
