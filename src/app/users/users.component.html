@@ -1,0 +1,47 @@
+<body>
+    <div class="container mt-3">
+        <nav class="navbar navbar-expand-sm navbar-dark justify-content-between"> 
+            <ul class="pagination">
+                <li class="page-item">
+                  <a class="btn btn-success">Crear usuario</a>
+                </li>
+                <li class="page-item">
+                  <a class="btn btn-primary">Actualizar usuario</a>
+                </li>
+            </ul>
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" (click)="rewind()">Anterior</a>
+              </li>
+              <li class="page-item" *ngFor="let p of totalPages; let i = index">
+                <a class="page-link" (click)="setPage(i)" [ngClass]="{'text-primary': i !== page }">{{ i+1}}</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" (click)="forward()">Siguiente</a>
+              </li>
+            </ul>
+        </nav>
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Usuarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of people">
+                    <td>{{p.name}}</td>
+                    <td>{{p.lastname}}</td>
+                    <td>{{p.city.name}}</td>
+                    <td *ngFor="let u of users">
+                            {{u.username}}
+                            <button *ngIf="u.active" class="btn btn-success">Activo</button>
+                            <button *ngIf="!u.active" class="btn btn-danger">Inactivo</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

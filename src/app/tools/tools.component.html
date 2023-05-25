@@ -1,0 +1,61 @@
+<body>
+    <div class="form-group">
+        <h3 >Filtros</h3>
+        <nav>
+            <ul class="pagination justify-content">
+              <li class="page-item">
+                <a class="page-link" (click)="rewind()">Anterior</a>
+              </li>
+              <li class="page-item" *ngFor="let p of totalPages; let i = index">
+                <a class="page-link" (click)="setPage(i)" [ngClass]="{'text-primary': i !== page }">{{ i+1}}</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" (click)="forward()">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+        <input type="text" class="form-control" placeholder="Filtrar por nombre" name="filterName" [(ngModel)]="filterName">
+        <input type="text" class="form-control" placeholder="Filtrar por marca" name="filterBrand" [(ngModel)]="filterBrand">
+        <button class="btn btn-danger" (click)="logout()">Cerrar sesión</button>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-2">
+            <div *ngFor="let tool of tools | filterByName: filterName | filterByBrand: filterBrand" class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{tool.imageURL}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{tool.name}}</h5>
+                    <h6 class="card-title">{{tool.brand.name}}</h6>
+                    <p class="card-text">{{tool.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Ver disponibilidad</a>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <footer class="w-100 py-4 flex-shrink-0">
+        <div class="container py-4">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h1 text-white">FB.</h5>
+                    <img class="logo-footer" src="assets/img/hammer.svg" alt="hammer icon" width="30" height="24">Sistema Nacional de Inventario de Herramientas
+                    <p class="small text-muted mb-0">&copy; 2023 Derechos de autor. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                </div>
+                <div class="col-lg-2 col-md-6">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">Newsletter</h5>
+                    <p class="small text-muted">¿No esta lo que buscas? <br>Suscribete con tu email y recibe notificaciones cuando este disponible.</p>
+                    <form action="#">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>

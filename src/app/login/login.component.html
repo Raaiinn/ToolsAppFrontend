@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="login">
+    <form class="custom-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Nombre de usuario</label>
+          <input type="text" formControlName="username" name="username" placeholder="Nombre de usuario" required="required" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" formControlName="password" name="password" placeholder="Contraseña" required="required" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+  </div>
+</div>
